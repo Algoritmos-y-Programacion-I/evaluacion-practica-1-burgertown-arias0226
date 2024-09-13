@@ -14,7 +14,7 @@ public class BurgerTown {
     }
 
     /**
-     * Descripción: Este método se encarga de iniciar las variables globales
+     * Description: Este método se encarga de iniciar las variables globales
      * pre: El Scanner reader debe estar declarado
      * pos: El Scanner reader queda inicializado
     */
@@ -36,13 +36,13 @@ public class BurgerTown {
 
         do {
             System.out.println("\nMenú Principal:");
-            System.out.println("1. Solicitar precios ($) y cantidades de cada plato vendido en el día");
+            System.out.println("1. Ingresar precios ($) y cantidades de cada plato vendido en el día");
             System.out.println("2. Calcular la cantidad total de platos vendidos en el día");
             System.out.println("3. Calcular el precio promedio de los platos vendidos en el día");
-            System.out.println("4. Calcular las ventas totales (dinero recaudado) durante el día");
+            System.out.println("4. Calcular las ventas totales durante el día");
             System.out.println("5. Consultar el número de platos que han superado un límite mínimo de ventas");
             System.out.println("6. Salir");
-            System.out.println("\nDigite la opción a ejecutar");
+            System.out.println("\nDigite una opcion del menu");
             int opcion = reader.nextInt();
 
             switch (opcion) {
@@ -53,15 +53,15 @@ public class BurgerTown {
                     System.out.println("\nLa cantidad total de platos vendidos en el día fue de: " + calcularTotalPlatosVendidos());
                     break;
                 case 3:
-                    System.out.println("\nEl precio promedio de los platos vendidos en el día fue de: " + calcularPrecioPromedio());
+                    System.out.printf("\nEl precio promedio de los platos vendidos en el día fue de: %.3f\n", calcularPrecioPromedio());
                     break;
                 case 4:
-                    System.out.println("\nLas ventas totales (dinero recaudado) durante el día fueron: " + calcularVentasTotales());
+                    System.out.println("\nLas ventas totales durante el día fueron: " + calcularVentasTotales());
                     break;
                 case 5:
                     System.out.println("\nDigite el límite mínimo de ventas a analizar:");
                     double limite = reader.nextDouble();
-                    System.out.println("\nDe los " + precios.length + " platos vendidos en el día, " + consultarPlatosSobreLimite(limite) + " superaron el límite mínimo de ventas de " + limite);
+                    System.out.println("\nDe los " + precios.length + " platos vendidos en el día, " + consultarPlatosSobreLimite(limite) + " superaron el límite mínimo de ventas de " + limite );
                     break;
                 case 6:
                     System.out.println("\n¡Gracias por usar nuestros servicios!");
@@ -95,16 +95,16 @@ public class BurgerTown {
      */
     public static void solicitarDatos() {
         for (int i = 0; i < precios.length; i++) {
-            System.out.println("Digite el precio del plato " + (i + 1) + ":");
+            System.out.println("Digite el precio del plato: " + (i + 1) + ":");
             precios[i] = reader.nextDouble();
-            System.out.println("Digite la cantidad vendida del plato " + (i + 1) + ":");
+            System.out.println("Digite las cantidades vendidas:" + (i + 1) + ":");
             unidades[i] = reader.nextInt();
         }
     }
 
     /**
      * Descripción: Calcula la cantidad total de platos vendidos.
-     * pre: Los arreglos precios y unidades deben estar inicializados.
+     * pre: Los arreglos de precios y unidades deben estar inicializados.
      * @return cantidad total de platos vendidos.
      */
     public static int calcularTotalPlatosVendidos() {
